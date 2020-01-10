@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" type="text/css" href="./style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css"
+    integrity="sha256-WAgYcAck1C1/zEl5sBl5cfyhxtLgKGdpI3oKyJffVRI=" crossorigin="anonymous" />
+  <link href="./themes/prism.css" rel="stylesheet" />
+
+  <title>Merlins Marker</title>
+</head>
+
+<body>
+  <header>
+    <div class="header-info">
+      <h1>Merlins Marker</h1>
+      <p>A syntax highligting theme generator based on Prism.js</p>
+      <p>Just change the colors to your desired values, check out the result in the example section and copy the CSS.
+      </p>
+      <p>Your custom CSS will then be used as your Prism stylesheet. See <a id="prism-link" href="#">Prism.js</a> for
+        more details</p>
+    </div>
+    <img src="./header-img.png" alt="header image">
+  </header>
+
+
+
+  <main class="highlight-section">
+    <!-- Color Picker -->
+    <div class="color-picker__wrapper">
+      <section class="color-picker">
+        <ul class="color-picker__list">
+          <!-- Line Highlight -->
+          <div class="line-highlights">
+            <h2>Line Highlights</h2>
+            <li>
+              <input id="highlight-background" type="color" value="#F7EBC6">
+              <label for="highlight-background">Highlight Background</label>
+            </li>
+            <li>
+              <input id="highlight-accent" type="color" value="#F7D87C">
+              <label for="highlight-accent">Highlight Accent</label>
+            </li>
+          </div>
+
+          <!-- Inline Code -->
+          <div class="inline-code">
+            <h2>Inline Code</h2>
+            <li>
+              <input id="inline-code-color" type="color" value="#DB4C69">
+              <label for="highlight-code-color">Highlight Code Color</label>
+            </li>
+            <li>
+              <input id="inline-code-background" type="color" value="#F9F2F4">
+              <label for="inline-code-background">Inline Code Background</label>
+            </li>
+          </div>
+
+          <!-- Code Blocks -->
+          <div class="code-blocks">
+            <h2>Code Blocks</h2>
+            <li>
+              <input id="block-background" type="color" value="#0D2831">
+              <label for="block-background">Block Background</label>
+            </li>
+            <li>
+              <input id="base-color" type="color" value="#5C6E74">
+              <label for="base-color">Base Color</label>
+            </li>
+            <li>
+              <input id="selected-color" type="color" value="#b3d4fc">
+              <label for="selected-color">Seleced Color</label>
+            </li>
+          </div>
+
+
+          <!-- Tokens -->
+          <div class="tokens">
+            <h2>Tokens</h2>
+            <li>
+              <input id="comment-color" type="color" value="#93A1A1">
+              <label for="comment-color">Comment Color</label>
+            </li>
+            <li>
+              <input id="punctuation-color" type="color" value="#999999">
+              <label for="punctuation-color">Punctuation Color</label>
+            </li>
+            <li>
+              <input id="property-color" type="color" value="#990055">
+              <label for="property-color">Property Color</label>
+            </li>
+            <li>
+              <input id="selector-color" type="color" value="#669900">
+              <label for="selected-color">Selector Color</label>
+            </li>
+            <li>
+              <input id="operator-color" type="color" value="#a67f59">
+              <label for="operator-color">Operator Color</label>
+            </li>
+            <li>
+              <input id="operator-background" type="color" value="#FFFFFF">
+              <label for="operator-background">Operator Background</label>
+            </li>
+            <li>
+              <input id="variable-color" type="color" value="#ee9900">
+              <label for="variable-color">Variable Color</label>
+            </li>
+            <li>
+              <input id="function-color" type="color" value="#DD4A68">
+              <label for="function-color">Function Color</label>
+            </li>
+            <li>
+              <input id="keyword-color" type="color" value="#0077aa">
+              <label for="keyword-color">Keyword Color</label>
+            </li>
+        </ul>
+      </section>
+    </div>
+
+    <!-- Syntax Highlight Examples -->
+    <div class="code-preview__examples">
+      <!-- JavaScript -->
+      <section class="code-preview code-preview__javascript">
+        <pre>
+      <code class="language-javascript">
+        <!-- This is how a comment would look like -->
+          onSubmit(e) {
+            e.preventDefault();
+            const job = {
+              title: 'Developer'
+            }
+          }
+      </code>
+    </pre>
+      </section>
+
+      <p>This is <code class='language-javascript'>inline code</code></p>
+      <!-- JSX -->
+      <section class="code-preview code-preview__jsx">
+        <pre>
+      <code data-line="2" class="language-jsx">
+        <script type="prism-jsx-markup">
+        import React, { useState } from ' react'; import { Planet } from 'react-kawaii' ; const PlanetHook=()=> {
+          const [emotion, setEmotion] = useState(true)
+        
+          const handleToggle = () => {
+            setEmotion(prevState => !prevState)
+          }
+        
+          const emotionCondition = emotion ? 'blissful' : 'ko'
+        
+          return (
+            <>
+              {<Planet size={250} mood={emotionCondition} color="#61DDBC" />}
+              <button
+                className='emotion-btn'
+                onClick={handleToggle}
+              >
+                Emotion Toggle
+                </button>
+            </>
+          )
+        }
+        
+        export default PlanetHook
+      </script>
+      </code>
+    </pre>
+      </section>
+
+      <!-- HTML -->
+      <section class="code-preview code-html">
+        <pre>
+        <code class="language-html">
+          <script type="prism-html-markup">
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+
+              <meta charset="utf-8" />
+              <link rel="icon" href="favicon.png" />
+              <title>Prism is awesome</title>
+              <base href="../.." />
+              <link rel="stylesheet" href="style.css" />
+
+            </head>
+            <body class="language-markup">
+
+            <header>
+              <div class="intro" data-src="templates/header-plugins.html" data-type="text/html"></div>
+
+              <h2>Unescaped markup</h2>
+              <p>Write markup without having to escape anything.</p>
+            </header>
+
+            <section>
+              <h1>How to use</h1>
+              <p>Instead of using <code>&lt;pre>&lt;code></code> elements, use <code>&lt;script type="text/plain"></code>:</p>
+            </section>
+
+            <section>
+              <h1>Examples</h1>
+
+              <p>With <code>&lt;script type="text/plain"></code>:</p>
+
+            <footer data-src="templates/footer.html" data-type="text/html"></footer>
+
+            </body>
+            </html>
+          </script>
+        </code>
+      </pre>
+      </section>
+
+      <section id="css-insert">
+
+      </section>
+    </div>
+  </main>
+
+  <a id="download-btn" download href="./themes/prism.css">Download CSS</a>
+
+  <script src='./index.js'></script>
+  <script src='./prism.js'></script>
+</body>
+
+</html>

@@ -1,0 +1,164 @@
+:root {
+  /* Line Highlights */
+  --highlight-background: #333333;
+  --highlight-accent: #F7D87C;
+
+  /* Inline Code */
+  --inline-code-color: #DB4C69;
+  --inline-code-background: #F9F2F4;
+
+  /* Code Blocks */
+  --block-background: #0D2831;
+  --base-color: #5C6E74;
+  --selected-color: #B3D4FC;
+
+  /* Tokens */
+  --comment-color: #93A1A1;
+  --punctuation-color: #999999;
+  --property-color: #D00D74;
+  --selector-color: #669900;
+  --operator-color: #36cbc8;
+  --operator-background: #1d1f21;
+  --variable-color: #EE9900;
+  --function-color: #DD4A68;
+  --keyword-color: #0077AA;
+}
+
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  background-color: #3F3D44;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+input[type="color"] {
+  width: 40px;
+  height: 35px;
+  padding: 0;
+  margin-right: 10px;
+  border: none;
+}
+
+/* Header */
+
+header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+  width: 100%;
+  padding: 0 2rem;
+}
+
+header h1 {
+  font-size: 3rem;
+}
+
+header p {
+  font-size: 1.3rem;
+}
+
+.header-info {
+  max-width: 600px;
+}
+
+#prism-link {
+  color: white;
+  text-decoration: none;
+}
+
+img {
+  width: 400px;
+}
+
+/* Sections */
+
+.highlight-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: none;
+}
+
+.color-picker__wrapper {
+  padding: 2rem;
+}
+
+.code-preview {
+  min-width: 500px;
+  display: grid;
+  padding-right: 2rem;
+}
+
+.code-preview__examples {
+  padding: 2rem;
+}
+
+/* Color Picker List */
+
+.color-picker__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+}
+
+.color-picker__list li {
+  display: flex;
+  align-items: center;
+  padding-bottom: 1rem;
+}
+
+@media screen and (max-width: 750px) {
+  .color-picker__list li {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .color-picker__list li > label {
+    padding: .5rem 0 1rem 0;
+  }
+}
+
+/* Code Preview */
+
+.code-preview {
+  max-width: 800px;
+}
+
+/* Download Button */
+
+#download-btn {
+  position: fixed;
+  bottom: 2rem;
+  right: 5rem;
+
+  color: white;
+  background: #333;
+  padding: 15px;
+  text-decoration: none;
+  z-index: 99;
+}
