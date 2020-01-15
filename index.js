@@ -2,30 +2,16 @@ import { colors } from './colorHelper'
 
 const inputs = [].slice.call(document.querySelectorAll('input[type="color"]'));
 
-const handleThemeUpdate = (colors) => {
-  const root = document.querySelector(':root');
-  const keys = Object.keys(colors);
-  keys.forEach(key => {
-    root.style.setProperty(key, colors[key]);
-  });
+const handleUpdate = (e) => {
+  document.documentElement.style.setProperty(`--${e.target.id}`, e.target.value);
+  const colorVal = e.target.value
+  console.log(`--${e.target.id} is now ${e.target.value}`)
+  return colorVal
 }
 
-inputs.forEach((input) => {
-  input.addEventListener('change', (e) => {
-    e.preventDefault()
-    const cssPropName = `--${e.target.id}`
+inputs.forEach(input => input.addEventListener('change', handleUpdate));
 
-    document.styleSheets[2].cssRules[3].style.setProperty(cssPropName, e.target.value)
-
-    handleThemeUpdate({
-      [cssPropName]: e.target.value
-    });
-
-    updatedUserStyleSheet()
-  });
-});
-
-const updatedUserStyleSheet = async () => {
+const fetchStyleSheet = async () => {
   const res = await fetch("./themes/prism.css");
   const orig_css = await res.text();
   let updated_css = orig_css;
@@ -33,27 +19,26 @@ const updatedUserStyleSheet = async () => {
   const regexp = /(?:var\(--)[a-zA-z\-]*(?:\))/g;
   let cssVars = orig_css.matchAll(regexp);
   cssVars = Array.from(cssVars).flat();
+  console.log(cssVars)
 
   for await (const variable of cssVars) {
     updated_css = updated_css.replace(variable, colors[variable.slice(6, -1)]);
+    // updated_css = updated_css.replace(variable, value);
+    console.log(variable.slice(6, -1))
   }
 
-  // Download button
-  const downloadBtn = document.getElementById('download-btn')
-  downloadBtn.setAttribute('href', 'data:application/octet-stream;charset=utf-8,' + encodeURIComponent(updated_css))
+  // console.log(updated_css)
 
-  console.log(updated_css)
+  return updated_css
 }
 
-updatedUserStyleSheet()
+const main = async () => {
+  const updated_css = await fetchStyleSheet()
+  const downloadBtn = document.getElementById('download-btn')
+  downloadBtn.addEventListener('click', () => {
+    downloadBtn.setAttribute('href', 'data:application/octet-stream;charset=utf-8,' + encodeURIComponent(updated_css))
+    downloadBtn.setAttribute('download', 'prism-theme.css')
+  })
+}
 
-// var a = window.document.createElement('a');
-// a.href = window.URL.createObjectURL(new Blob([updatedUserStyleSheet()], { type: 'text/css' }));
-// a.download = 'test.css';
-
-// // Append anchor to body.
-// document.body.appendChild(a);
-// a.click();
-
-// // Remove anchor from body
-// document.body.removeChild(a);
+main()
