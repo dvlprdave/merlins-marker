@@ -1,5 +1,3 @@
-import { colors } from './colorHelper'
-
 const inputs = [].slice.call(document.querySelectorAll('input[type="color"]'));
 
 const handleUpdate = (e) => {
@@ -22,12 +20,14 @@ const fetchStyleSheet = async () => {
   console.log(cssVars)
 
   for await (const variable of cssVars) {
-    updated_css = updated_css.replace(variable, colors[variable.slice(6, -1)]);
-    // updated_css = updated_css.replace(variable, value);
-    console.log(variable.slice(6, -1))
-  }
+    const trimmedVar = variable.slice(6, -1)
+    const styles = getComputedStyle(document.documentElement)
+    const value = String(styles.getPropertyValue(`--${trimmedVar}`)).trim()
 
-  // console.log(updated_css)
+    // updated_css = updated_css.replace(variable, colors[variable.slice(6, -1)]);
+    updated_css = updated_css.replace(variable, value);
+  }
+  console.log(updated_css)
 
   return updated_css
 }
