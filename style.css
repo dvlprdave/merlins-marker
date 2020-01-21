@@ -36,7 +36,7 @@ html {
 body {
   position: relative;
   margin: 0;
-  background-color: #3F3D44;
+  background-color: #F8F8FF;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
@@ -56,7 +56,6 @@ code {
 }
 
 input[type="color"] {
-  width: 40px;
   height: 35px;
   padding: 0;
   margin-right: 10px;
@@ -67,11 +66,9 @@ input[type="color"] {
 
 header {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  justify-items: center;
-  width: 100%;
-  padding: 0 2rem;
+  grid-template-columns: 1fr;
+  max-width: 55rem;
+  padding: 2rem 4rem;
 }
 
 header h1 {
@@ -82,12 +79,7 @@ header p {
   font-size: 1.3rem;
 }
 
-.header-info {
-  max-width: 600px;
-}
-
 #prism-link {
-  color: white;
   text-decoration: none;
 }
 
@@ -95,41 +87,49 @@ img {
   width: 400px;
 }
 
-/* Sections */
 
-.highlight-section {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: none;
-}
-
-.color-picker__wrapper {
-  padding: 2rem;
+/* Code Preview */
+.code-preview__examples {
 }
 
 .code-preview {
-  min-width: 500px;
   display: grid;
-  padding-right: 2rem;
+  grid-template-columns: 1fr;
+  height: 400px;
 }
 
-.code-preview__examples {
-  padding: 2rem;
+.code-preview__label {
+  font-size: 1.3rem;
 }
 
 /* Color Picker List */
 
-.color-picker__list {
+.main-wrapper {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  grid-template-columns: 1fr 1fr;
-  justify-items: center;
+  grid-template-columns: 3fr 2fr;
+  grid-gap: 2rem;
+  padding: 4rem;
+}
+
+.color-picker {
+  display: grid;
+  width: 100%;
+}
+
+.color-picker__list h2 {
+  padding-bottom: 1.4rem;
 }
 
 .color-picker__list li {
   display: flex;
   align-items: center;
-  padding-bottom: 1rem;
+  padding: 0 5% 10% 0;
+}
+
+.color-picker__section {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-bottom: 4rem;
 }
 
 @media screen and (max-width: 750px) {
@@ -141,12 +141,6 @@ img {
   .color-picker__list li > label {
     padding: .5rem 0 1rem 0;
   }
-}
-
-/* Code Preview */
-
-.code-preview {
-  max-width: 800px;
 }
 
 /* Download Button */

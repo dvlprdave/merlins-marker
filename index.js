@@ -24,7 +24,6 @@ const fetchStyleSheet = async () => {
     const styles = getComputedStyle(document.documentElement)
     const value = String(styles.getPropertyValue(`--${trimmedVar}`)).trim()
 
-    // updated_css = updated_css.replace(variable, colors[variable.slice(6, -1)]);
     updated_css = updated_css.replace(variable, value);
   }
   console.log(updated_css)
@@ -32,13 +31,25 @@ const fetchStyleSheet = async () => {
   return updated_css
 }
 
-const main = async () => {
-  const updated_css = await fetchStyleSheet()
-  const downloadBtn = document.getElementById('download-btn')
-  downloadBtn.addEventListener('click', () => {
+
+const downloadBtn = document.getElementById('download-btn')
+downloadBtn.addEventListener('click', async (e) => {
+  if (!e.isTrusted) return
+  try {
+    event.preventDefault()
+    const updated_css = await fetchStyleSheet()
     downloadBtn.setAttribute('href', 'data:application/octet-stream;charset=utf-8,' + encodeURIComponent(updated_css))
     downloadBtn.setAttribute('download', 'prism-theme.css')
-  })
-}
+    downloadBtn.click() // simulate a new click
+  } catch (err) {
+    console.error(err) // or alert it, or put the message on the page
+  }
+})
+// const downloadBtn = document.getElementById('download-btn')
+// downloadBtn.addEventListener('click', async (e) => {
+//   if(!e.isTrusted) return
 
-main()
+//   const updated_css = await fetchStyleSheet()
+//   downloadBtn.setAttribute('href', 'data:application/octet-stream;charset=utf-8,' + encodeURIComponent(updated_css))
+//   downloadBtn.setAttribute('download', 'prism-theme.css')
+// })
