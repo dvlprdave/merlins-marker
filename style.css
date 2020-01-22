@@ -56,19 +56,17 @@ code {
 }
 
 input[type="color"] {
-  height: 35px;
+  height: 40px;
   padding: 0;
   margin-right: 10px;
   border: none;
+
 }
 
 /* Header */
 
 header {
-  display: grid;
-  grid-template-columns: 1fr;
-  max-width: 55rem;
-  padding: 2rem 4rem;
+  margin-bottom: 2rem;
 }
 
 header h1 {
@@ -87,52 +85,52 @@ img {
   width: 400px;
 }
 
-
-/* Code Preview */
-.code-preview__examples {
-}
-
-.code-preview {
-  display: grid;
-  grid-template-columns: 1fr;
-  height: 400px;
-}
-
-.code-preview__label {
-  font-size: 1.3rem;
-}
-
 /* Color Picker List */
 
 .main-wrapper {
   display: grid;
-  grid-template-columns: 3fr 2fr;
+  grid-template-columns: 1fr 1fr;
   grid-gap: 2rem;
-  padding: 4rem;
 }
 
 .color-picker {
   display: grid;
-  width: 100%;
-}
+  grid-template-rows: max-content;
 
-.color-picker__list h2 {
-  padding-bottom: 1.4rem;
+  width: 100%;
+  padding: 4rem;
+  color: #f2f3f4;
+  background: #353D4F;
 }
 
 .color-picker__list li {
   display: flex;
+  flex: 1 0 auto;
+  flex-shrink: 1;
   align-items: center;
-  padding: 0 5% 10% 0;
+  justify-items: center;
+  padding: 0 5% 5% 0;
 }
 
 .color-picker__section {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  /* grid-template-columns: repeat(2, 1fr); */
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   margin-bottom: 4rem;
 }
 
+.color-picker__section label {
+  /* border: 1px solid #5C6E74;
+  padding: 10px; */
+  text-align: center;
+  align-self: center;
+}
+
 @media screen and (max-width: 750px) {
+  .main-wrapper {
+    grid-template-columns: 1fr;
+  }
+
   .color-picker__list li {
     flex-direction: column;
     align-items: flex-start;
@@ -143,6 +141,22 @@ img {
   }
 }
 
+/* Code Preview */
+.code-preview__examples {
+  /* background: #353D4F; */
+  padding: 2rem;
+}
+
+.code-preview {
+  display: grid;
+  grid-template-columns: 1fr;
+  /* height: 400px; */
+}
+
+.code-preview__label {
+  font-size: 1.3rem;
+}
+
 /* Download Button */
 
 #download-btn {
@@ -151,7 +165,7 @@ img {
   right: 5rem;
 
   color: white;
-  background: #333;
+  background: rgb(14, 117, 158);
   padding: 15px;
   text-decoration: none;
   z-index: 99;
