@@ -38,18 +38,15 @@ downloadBtn.addEventListener('click', async (e) => {
   try {
     event.preventDefault()
     const updated_css = await fetchStyleSheet()
+
     downloadBtn.setAttribute('href', 'data:application/octet-stream;charset=utf-8,' + encodeURIComponent(updated_css))
     downloadBtn.setAttribute('download', 'prism-theme.css')
-    downloadBtn.click() // simulate a new click
+    downloadBtn.click()
   } catch (err) {
-    console.error(err) // or alert it, or put the message on the page
+    alert(err)
   }
 })
-// const downloadBtn = document.getElementById('download-btn')
-// downloadBtn.addEventListener('click', async (e) => {
-//   if(!e.isTrusted) return
 
-//   const updated_css = await fetchStyleSheet()
-//   downloadBtn.setAttribute('href', 'data:application/octet-stream;charset=utf-8,' + encodeURIComponent(updated_css))
-//   downloadBtn.setAttribute('download', 'prism-theme.css')
-// })
+window.onload = () => {
+  document.querySelectorAll('input[type="color"]').value = 'red'
+}

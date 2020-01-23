@@ -124,27 +124,10 @@ pre[class*="language-"] > code[class*="language-"] {
   right: 0;
   padding: inherit 0;
   margin-top: 1em;
-  background: var(--highlight-background);
+  background: rgba(var(--highlight-background), 0.8);
   box-shadow: inset 5px 0 0 var(--highlight-accent);
   z-index: 0;
   pointer-events: none;
   line-height: inherit;
   white-space: pre;
-}
-
-.line-highlight {
-	position: absolute;
-	left: 0;
-	right: 0;
-	padding: inherit 0;
-	margin-top: 1em; /* Same as .prism’s padding-top */
-
-	background: hsla(24, 20%, 50%,.08);
-	/* background: var(--highlight-background); */
-	/* background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0)); */
-  z-index: 0;
-	pointer-events: none;
-
-	line-height: inherit;
-	white-space: pre;
 }
