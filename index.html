@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" type="text/css" href="./style.css">
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css"
     integrity="sha256-WAgYcAck1C1/zEl5sBl5cfyhxtLgKGdpI3oKyJffVRI=" crossorigin="anonymous" />
   <link href="./themes/prism.css" rel="stylesheet" />
@@ -125,18 +126,41 @@
         <p class="code-preview__label">JavaScript</p>
         <pre data-line="2">
         <code class="language-javascript">
-          <!-- This is how a comment would look like -->
-            onSubmit(e) {
-              e.preventDefault();
-              const job = {
-                title: 'Developer'
-              }
+          const user = {
+            name: 'David',
+            age: 28,
+            languages: ['JavaScript', 'Ruby', 'Python'],
+            greet() {
+              const hello = `Hello, my name is ${this.name} and I know`
+          
+              const langs = this.languages.reduce(function (str, lang, i) {
+                if (i === this.languages.length - 1) {
+                  return `${str} and ${lang}.`
+                }
+          
+                return `${str} ${lang},`
+              }, "")
+          
+              alert(hello + langs)
             }
+          }
+
+          // ES6 syntax
+          function Person(){
+            this.age = 0;
+
+            setInterval(() => {
+              // `this` now refers to the Person object, brilliant!
+              this.age++;
+            }, 1000);
+          }
+
+          let p = new Person();
         </code>
           </pre>
       </section>
 
-      <p>This is <code class='language-javascript'>inline code</code></p>
+      <!-- <p>This is <code class='language-javascript'>inline code</code></p> -->
       <!-- JSX -->
       <section class="code-preview code-preview__jsx">
         <p class="code-preview__label">React JSX</p>
@@ -172,7 +196,7 @@
       </section>
 
       <!-- HTML -->
-      <section class="code-preview code-html">
+      <section class="code-preview code-preview__html">
         <p class="code-preview__label">HTML</p>
         <pre>
         <code class="language-html">
@@ -211,6 +235,48 @@
 
             </body>
             </html>
+          </script>
+        </code>
+          </pre>
+      </section>
+
+      <!-- CSS -->
+      <section class="code-preview code-preview__css">
+        <p class="code-preview__label">CSS</p>
+        <pre>
+        <code class="language-css">
+          <script type="prism-html-markup">
+            html {
+              box-sizing: border-box;
+            }
+            *,
+            *:before,
+            *:after {
+              box-sizing: inherit;
+            }
+            
+            body {
+              position: relative;
+              margin: 0;
+              background-color: #F8F8FF;
+              font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+                "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+                sans-serif;
+                font-family: 'Source Sans Pro', sans-serif;
+              -webkit-font-smoothing: antialiased;
+              -moz-osx-font-smoothing: grayscale;
+            }
+            
+            ul {
+              list-style: none;
+              padding: 0;
+              margin: 0;
+            }
+            
+            code {
+              font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+                monospace;
+            }
           </script>
         </code>
           </pre>

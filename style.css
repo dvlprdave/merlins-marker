@@ -37,11 +37,10 @@ body {
   position: relative;
   margin: 0;
   background-color: #F8F8FF;
-  /* font-size: calc(12px + 0.38vw);
-  line-height: calc(12px + 1.05vw); */
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -63,6 +62,7 @@ input[type="color"] {
   margin-right: 10px;
   border: none;
   vertical-align: center;
+  outline: none;
 }
 
 /* Header */
@@ -75,8 +75,13 @@ header h1 {
   font-size: 3rem;
 }
 
+header h2 {
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
 header p {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
 }
 
 #prism-link {
@@ -92,8 +97,8 @@ img {
 
 .main-wrapper {
   display: grid;
-  grid-template-columns: 1fr 3fr;
-  grid-gap: 2rem;
+  grid-template-columns: 1fr 2fr;
+  height: 100vh;
 }
 
 .color-picker {
@@ -101,9 +106,10 @@ img {
   grid-template-rows: max-content;
 
   width: 100%;
-  padding: 4rem;
+  padding: 2rem;
   color: #f2f3f4;
-  background: rgb(28, 32, 41);
+  background: #091114;
+  overflow-y: scroll;
 }
 
 .color-picker__list li {
@@ -111,27 +117,35 @@ img {
   align-items: center;
   justify-items: center;
   padding: 0 5% 5% 0;
-  vertical-align: center;
 }
 
 .color-picker__section {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
   margin-bottom: 2rem;
 }
 
 /* Code Preview */
 .code-preview__examples {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: max-content;
+  grid-gap: 2em;
   padding: 2rem;
+  overflow-y: scroll;
 }
 
-.code-preview {
-  display: grid;
-  grid-template-columns: 1fr;
+.code-preview__javascript {
+  grid-column: 1 / 2;
+}
+
+.code-preview__html {
+  grid-column: 1;
 }
 
 .code-preview__label {
   font-size: 1.3rem;
+  font-weight: bold;
 }
 
 /* Download Button */
@@ -142,10 +156,14 @@ img {
   right: 1rem;
 
   color: white;
-  background: rgb(14, 117, 158);
+  background: rgb(10, 88, 119);
   padding: 15px;
   text-decoration: none;
   z-index: 99;
+}
+
+#download-btn:hover {
+  background: rgb(9, 67, 90);
 }
 
 /* Media Queries */
@@ -153,6 +171,7 @@ img {
 @media screen and (max-width: 750px) {
   .main-wrapper {
     grid-template-columns: 1fr;
+    height: 100%;
   }
 
   header h1 {
@@ -167,8 +186,16 @@ img {
     font-size: 1.1rem;
   }
 
-  .color-picker__list li {
-    align-items: flex-start;
+  .color-picker, .code-preview__examples {
+    overflow: hidden;
+  }
+
+  .color-picker {
+    grid-template-columns: minmax(200px, 1fr);
+  }
+
+  .color-picker__section {
+    grid-template-columns: minmax(150px, 1fr);
   }
 
   .color-picker__list li > label {
