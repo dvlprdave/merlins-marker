@@ -112,22 +112,23 @@ pre[class*="language-"] {
 /* Line highlighting */
 
 pre[data-line] {
-  position: relative;
+	position: relative;
 }
-pre[class*="language-"] > code[class*="language-"] {
-  position: relative;
-  z-index: 1;
-}
+
 .line-highlight {
-  position: absolute;
-  left: 0;
-  right: 0;
-  padding: inherit 0;
-  margin-top: 1em;
-  background: rgba(var(--highlight-background), 0.8);
+	position: absolute;
+	left: 10px;
+	right: 0;
+	padding: inherit 0;
+	margin-top: 1em;
+  background: var(--highlight-background);
   box-shadow: inset 5px 0 0 var(--highlight-accent);
-  z-index: 0;
-  pointer-events: none;
-  line-height: inherit;
-  white-space: pre;
+  opacity: 0.3;
+	pointer-events: none;
+	line-height: inherit;
+	white-space: pre;
 }
+
+/* 
+Author: David Quick 
+*/
