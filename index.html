@@ -24,24 +24,31 @@
           Custom theming doesn't have to be hard. It should be easy and fun!
         </h2>
         <p>
-          Just change the colors to your desired values, check out
-          the result in the example section and copy the CSS. Your custom CSS will then be used as your Prism
-          stylesheet.
-          See <a id="prism-link" href="#">Prism.js</a> for more details
+          Just change the colors on the left and watch your theme come to life in the example section on the right. Once
+          you've made something you love, smash that download button!
+        </p>
+        <p>
+          Your custom CSS can now be used as your Prism stylesheet. If you're not sure how to use your theme, head over
+          to
+          <a id="prism-link" href="https://github.com/PrismJS/prism-themes" target="_blank">Prism Themes</a>
+          for more details.
         </p>
       </header>
+
       <ul class="color-picker__list">
         <!-- Line Highlight -->
         <h2>Line Highlights</h2>
         <div class="line-highlights color-picker__section">
           <li>
-            <div class="input-color">
+            <div class="color-wrapper">
               <input id="highlight-background" type="color" value="#F7EBC6">
             </div>
             <label for="highlight-background">Highlight Background</label>
           </li>
           <li>
-            <input id="highlight-accent" type="color" value="#F7D87C">
+            <div class="color-wrapper">
+              <input id="highlight-accent" type="color" value="#F7D87C">
+            </div>
             <label for="highlight-accent">Highlight Accent</label>
           </li>
         </div>
@@ -50,11 +57,15 @@
         <h2>Inline Code</h2>
         <div class="inline-code color-picker__section">
           <li>
-            <input id="inline-code-color" type="color" value="#68BC50">
+            <div class="color-wrapper">
+              <input id="inline-code-color" type="color" value="#68BC50">
+            </div>
             <label for="inline-code-color">Inline Code Color</label>
           </li>
           <li>
-            <input id="inline-code-background" type="color" value="#274E63">
+            <div class="color-wrapper">
+              <input id="inline-code-background" type="color" value="#274E63">
+            </div>
             <label for="inline-code-background">Inline Code Background</label>
           </li>
         </div>
@@ -63,57 +74,80 @@
         <h2>Code Blocks</h2>
         <div class="code-blocks color-picker__section">
           <li>
-            <input id="block-background" type="color" value="#0D2831">
+            <div class="color-wrapper">
+              <input id="block-background" type="color" value="#0D2831">
+            </div>
             <label for="block-background">Block Background</label>
           </li>
           <li>
-            <input id="base-color" type="color" value="#5C6E74">
+            <div class="color-wrapper">
+              <input id="base-color" type="color" value="#5C6E74">
+            </div>
             <label for="base-color">Base Color</label>
           </li>
           <li>
-            <input id="selected-color" type="color" value="#b3d4fc">
+            <div class="color-wrapper">
+              <input id="selected-color" type="color" value="#b3d4fc">
+            </div>
             <label for="selected-color">Seleced Color</label>
           </li>
         </div>
-
 
         <!-- Tokens -->
         <h2>Tokens</h2>
         <div class="tokens color-picker__section">
           <li>
-            <input id="comment-color" type="color" value="#93A1A1">
+            <div class="color-wrapper">
+              <input id="comment-color" type="color" value="#93A1A1">
+            </div>
             <label for="comment-color">Comment Color</label>
           </li>
           <li>
-            <input id="punctuation-color" type="color" value="#999999">
+            <div class="color-wrapper">
+              <input id="punctuation-color" type="color" value="#999999">
+            </div>
             <label for="punctuation-color">Punctuation Color</label>
           </li>
           <li>
-            <input id="property-color" type="color" value="#990055">
+            <div class="color-wrapper">
+              <input id="property-color" type="color" value="#990055">
+            </div>
             <label for="property-color">Property Color</label>
           </li>
           <li>
-            <input id="selector-color" type="color" value="#669900">
+            <div class="color-wrapper">
+              <input id="selector-color" type="color" value="#669900">
+            </div>
             <label for="selected-color">Selector Color</label>
           </li>
           <li>
-            <input id="operator-color" type="color" value="#a67f59">
+            <div class="color-wrapper">
+              <input id="operator-color" type="color" value="#a67f59">
+            </div>
             <label for="operator-color">Operator Color</label>
           </li>
           <li>
-            <input id="operator-background" type="color" value="#FFFFFF">
+            <div class="color-wrapper">
+              <input id="operator-background" type="color" value="#FFFFFF">
+            </div>
             <label for="operator-background">Operator Background</label>
           </li>
           <li>
-            <input id="variable-color" type="color" value="#ee9900">
+            <div class="color-wrapper">
+              <input id="variable-color" type="color" value="#ee9900">
+            </div>
             <label for="variable-color">Variable Color</label>
           </li>
           <li>
-            <input id="function-color" type="color" value="#DD4A68">
+            <div class="color-wrapper">
+              <input id="function-color" type="color" value="#DD4A68">
+            </div>
             <label for="function-color">Function Color</label>
           </li>
           <li>
-            <input id="keyword-color" type="color" value="#0077aa">
+            <div class="color-wrapper">
+              <input id="keyword-color" type="color" value="#0077aa">
+            </div>
             <label for="keyword-color">Keyword Color</label>
           </li>
       </ul>

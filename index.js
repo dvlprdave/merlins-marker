@@ -1,10 +1,16 @@
-const inputs = [].slice.call(document.querySelectorAll('input[type="color"]'));
+const inputs = [].slice.call(document.querySelectorAll('input[type="color"]'))
+
+const colorInputs = document.querySelectorAll('.color-wrapper input');
+colorInputs.forEach(function (element) {
+  element.parentNode.style.background = element.value;
+
+  element.addEventListener("change", function () {
+    element.parentNode.style.background = element.value;
+  });
+})
 
 const handleUpdate = (e) => {
   document.documentElement.style.setProperty(`--${e.target.id}`, e.target.value);
-  const colorVal = e.target.value
-  console.log(`--${e.target.id} is now ${e.target.value}`)
-  return colorVal
 }
 
 inputs.forEach(input => input.addEventListener('change', handleUpdate));
@@ -17,7 +23,6 @@ const fetchStyleSheet = async () => {
   const regexp = /(?:var\(--)[a-zA-z\-]*(?:\))/g;
   let cssVars = orig_css.matchAll(regexp);
   cssVars = Array.from(cssVars).flat();
-  console.log(cssVars)
 
   for await (const variable of cssVars) {
     const trimmedVar = variable.slice(6, -1)
@@ -26,7 +31,6 @@ const fetchStyleSheet = async () => {
 
     updated_css = updated_css.replace(variable, value);
   }
-  console.log(updated_css)
 
   return updated_css
 }
@@ -46,7 +50,3 @@ downloadBtn.addEventListener('click', async (e) => {
     alert(err)
   }
 })
-
-window.onload = () => {
-  document.querySelectorAll('input[type="color"]').value = 'red'
-}
