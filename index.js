@@ -35,7 +35,6 @@ const fetchStyleSheet = async () => {
   return updated_css
 }
 
-
 const downloadBtn = document.getElementById('download-btn')
 downloadBtn.addEventListener('click', async (e) => {
   if (!e.isTrusted) return

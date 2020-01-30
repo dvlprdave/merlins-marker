@@ -1,0 +1,2 @@
+# Redirect default Netlify subdomain to primary domain
+https://angry-morse-60110b.netlify.com/* https://merlins-marker.com/:splat 301!
