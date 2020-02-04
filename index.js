@@ -1,19 +1,21 @@
 const inputs = [].slice.call(document.querySelectorAll('input[type="color"]'))
 
-const colorInputs = document.querySelectorAll('.color-wrapper input');
-colorInputs.forEach(function (element) {
-  element.parentNode.style.background = element.value;
-
-  element.addEventListener("change", function () {
-    element.parentNode.style.background = element.value;
-  });
-})
-
 const handleUpdate = (e) => {
   document.documentElement.style.setProperty(`--${e.target.id}`, e.target.value);
 }
 
 inputs.forEach(input => input.addEventListener('change', handleUpdate));
+
+(function handleInputs() {
+  const colorInputs = document.querySelectorAll('.color-wrapper input');
+  colorInputs.forEach(element => {
+    element.parentNode.style.background = element.value;
+
+    element.addEventListener("change", () => {
+      element.parentNode.style.background = element.value;
+    });
+  })
+})()
 
 const fetchStyleSheet = async () => {
   const res = await fetch("./themes/prism.css");
