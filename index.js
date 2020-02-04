@@ -4,14 +4,14 @@ const handleUpdate = (e) => {
   document.documentElement.style.setProperty(`--${e.target.id}`, e.target.value);
 }
 
-inputs.forEach(input => input.addEventListener('change', handleUpdate));
+inputs.forEach(input => input.addEventListener('input', handleUpdate));
 
 (function handleInputs() {
   const colorInputs = document.querySelectorAll('.color-wrapper input');
   colorInputs.forEach(element => {
     element.parentNode.style.background = element.value;
 
-    element.addEventListener("change", () => {
+    element.addEventListener("input", () => {
       element.parentNode.style.background = element.value;
     });
   })
